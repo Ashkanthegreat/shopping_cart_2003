@@ -8,7 +8,15 @@ class ShoppingCart
   end
 
   def add_product(product)
-    @products << product 
+    @products << product
+  end
+
+  def total_number_of_products
+    @products.inject(0) {|result, product| result + product.quantity }
+  end
+
+  def is_full?
+    @products.inject(0) {|result, product| result + product.quantity } > @capacity
   end
 
 end
