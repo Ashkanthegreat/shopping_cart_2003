@@ -19,4 +19,20 @@ class ShoppingCart
     @products.inject(0) {|result, product| result + product.quantity } > @capacity
   end
 
+  def products_by_category(category)
+    product_category = []
+
+    @products.find_all do
+      if product.category == category
+        product_category << product.category
+      end
+    end
+    product_category
+  end
+
+  def details
+    self.attributes
+
+  end
+
 end
